@@ -1,0 +1,9 @@
+<div class="cont">
+<button type="button" class="btn btn-dark" (click)="menosCant()">-</button>
+
+<input type="text" 
+[(ngModel)]="cantidad" 
+(keyup)="cambiaCant($event)" >
+
+<button type="button" class="btn btn-dark" (click)="masCant()">+</button>
+</div>

@@ -41,15 +41,8 @@ export class ListaProductosComponent {
       "cant" : 0,
     }
   ];
-  masCant(producto:producto) : void {
-    if (producto.cant < producto.stock)
-    producto.cant++;
-  }
-  menosCant(producto:producto) : void {
-    if (producto.cant >0)
-    producto.cant--;
-  }
-  cambiaCant (event:any, producto:producto): void {
-    console.log(event.key);
+
+  maxAlcanzado(mensaje:String){
+    alert(mensaje);
   }
 }

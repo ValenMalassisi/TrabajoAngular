@@ -22,15 +22,11 @@
           } @else {
             <td><span class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">X</span></td>
           }
-          <td class="cant">
-              <button type="button" class="btn btn-dark cant2" (click)="menosCant(producto)">-</button>
-              <input type="text" 
-              [(ngModel)]="producto.cant" 
-              (keyup)="cambiaCant($event, producto)" 
-               class="cant2">
-
-              <button type="button" class="btn btn-dark cant3" (click)="masCant(producto)">+</button>
-        </td>
+          @if (producto.stock > 0) {
+            <td>
+                <app-input-numero [(cantidad)]="producto.cant" [max] ="producto.stock"  (maxAlcanzado)="maxAlcanzado($event)"></app-input-numero>
+            </td>
+          }
         </tr>
       } @empty {
         <tr>
