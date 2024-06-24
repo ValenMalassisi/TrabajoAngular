@@ -1,0 +1,41 @@
+
+<table class="table">
+<thead class="table-dark text-center">
+    <tr>
+        <td>Imagen</td>
+        <td>Nombre</td>
+        <td>Tipo</td>
+        <td>Precio</td>
+        <td>Stock</td>
+        <td>Cantidad</td>
+    <tr>
+</thead>
+<tbody>
+    @for (producto of productos; track producto.nombre) {
+        <tr>
+          <td><img [src]="producto.imagen"> </td>
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.tipo }}</td>
+          <td>{{ producto.precio | currency }}</td>
+          @if (producto.stock > 0) {
+            <td></td>
+          } @else {
+            <td><span class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">X</span></td>
+          }
+          <td class="cant">
+              <button type="button" class="btn btn-dark cant2" (click)="menosCant(producto)">-</button>
+              <input type="text" 
+              [(ngModel)]="producto.cant" 
+              (keyup)="cambiaCant($event, producto)" 
+               class="cant2">
+
+              <button type="button" class="btn btn-dark cant3" (click)="masCant(producto)">+</button>
+        </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4">No hay productos para mostrar.</td>
+        </tr>
+      }      
+</tbody>
+</table>
