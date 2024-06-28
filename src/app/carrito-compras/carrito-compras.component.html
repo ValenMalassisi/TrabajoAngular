@@ -1,3 +1,14 @@
-<p>Añadir producto</p>
+<div class="alert alert-dark" role="alert">
+    Carrito de Compras
+  </div>
 
-<button type="button" class="btn btn-primary btn-lg">Comprar</button>
+<ul class="list-group">
+        <li *ngFor="let producto of (lista_compras$ | async)" class="list-group-item">
+              {{ producto.nombre }}
+              {{ producto.precio | currency }}
+              Cantidad: {{producto.cant}}
+        </li>
+      
+</ul>
+
+<button type="button" class="btn btn-success">Comprar</button>

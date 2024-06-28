@@ -25,6 +25,7 @@
           @if (producto.stock > 0) {
             <td>
                 <app-input-numero [(cantidad)]="producto.cant" [max] ="producto.stock"  (maxAlcanzado)="maxAlcanzado($event)"></app-input-numero>
+                <button class="btn btn-secondary" (click)="addCarrito(producto)">Añadir</button>
             </td>
           }
         </tr>

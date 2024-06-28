@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { producto } from './producto';
+import { ComprasService } from '../compras.service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -7,6 +8,11 @@ import { producto } from './producto';
   styleUrl: './lista-productos.component.scss'
 })
 export class ListaProductosComponent {
+
+  constructor(private lista_compras: ComprasService){
+
+  }
+
   productos: producto[] = [
     {
       "nombre" : "Remera Levis",
@@ -44,5 +50,11 @@ export class ListaProductosComponent {
 
   maxAlcanzado(mensaje:String){
     alert(mensaje);
+  }
+
+  addCarrito(producto: producto) :void {
+    this.lista_compras.addCarrito(producto);
+    producto.stock -= producto.cant;
+    producto.cant = 0;
   }
 }
