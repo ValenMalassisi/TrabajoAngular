@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { DatosComponent } from './datos/datos.component';
 import { ProductosComponent } from './productos/productos.component';
 import { InputNumeroComponent } from './input-numero/input-numero.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InputNumeroComponent } from './input-numero/input-numero.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration()

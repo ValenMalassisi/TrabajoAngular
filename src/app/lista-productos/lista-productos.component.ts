@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { producto } from './producto';
 import { ComprasService } from '../compras.service';
+import { PaginaDataService } from '../pagina-data.service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -9,11 +10,22 @@ import { ComprasService } from '../compras.service';
 })
 export class ListaProductosComponent {
 
-  constructor(private lista_compras: ComprasService){
+  constructor(private lista_compras: ComprasService,
+              private productosService: PaginaDataService
+  ){
 
   }
 
-  productos: producto[] = [
+  /*CLASE 8 HTTP CLIENT
+
+  productos: producto[] = [];
+
+  ngOnInit(): void {
+    this.productosService.getAll().subscribe(productos => this.productos = productos);
+  }
+  */
+
+  productos: producto[] =  [
     {
       "nombre" : "Remera Levis",
       "tipo" : "Remera",
@@ -47,6 +59,7 @@ export class ListaProductosComponent {
       "cant" : 0,
     }
   ];
+
 
   maxAlcanzado(mensaje:String){
     alert(mensaje);
